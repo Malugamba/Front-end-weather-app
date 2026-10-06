@@ -1,0 +1,162 @@
+:root {
+  --bs-body-bg: #0f131c;
+  --bs-body-color: #dfe2ef;
+  
+  --primary: #bac6ec;
+  --secondary: #74d1ff;
+  --tertiary: #cebdff;
+  --surface: #0f131c;
+  --surface-variant: #31353f;
+  --outline: #8f9098;
+  --outline-variant: #45464e;
+  --on-surface: #dfe2ef;
+  --on-surface-variant: #c6c6ce;
+
+  --bg-gradient: radial-gradient(circle at 50% 15%, #253352 0%, #131926 50%, #0a0e17 100%);
+  
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--bs-body-color);
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6, .display-hero, .font-headline {
+  font-family: 'Manrope', sans-serif;
+}
+
+.text-primary-custom { color: var(--primary) !important; }
+.text-secondary-custom { color: var(--secondary) !important; }
+.text-tertiary-custom { color: var(--tertiary) !important; }
+.text-outline { color: var(--outline) !important; }
+.text-on-surface { color: var(--on-surface) !important; }
+.text-on-surface-variant { color: var(--on-surface-variant) !important; }
+
+.bg-surface-variant { background-color: rgba(49, 53, 63, 0.4) !important; }
+.bg-primary-container { background-color: rgba(46, 58, 89, 0.7) !important; }
+
+.frosted-glass {
+  background: rgba(30, 40, 62, 0.42);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+}
+
+.frosted-card {
+  background: rgba(24, 32, 50, 0.48);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.pill-card {
+  border-radius: 9999px;
+}
+
+/* Material Symbols Customization */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  line-height: 1;
+}
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ambient glow effect */
+.ambient-glow {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20rem;
+  height: 20rem;
+  background: rgba(116, 209, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.text-micro { font-size: 9px; letter-spacing: 0.08em; font-weight: 700; text-transform: uppercase; }
+.text-label-md { font-size: 11px; letter-spacing: 0.06em; font-weight: 600; text-transform: uppercase; }
+.text-display-hero { font-size: 68px; font-weight: 200; line-height: 1; letter-spacing: -0.03em; }
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(10, 14, 23, 0.8);
+  backdrop-filter: blur(20px);
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  z-index: 50;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+}
+
+.nav-item {
+  color: var(--outline);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s;
+  padding: 0.5rem 1rem;
+}
+.nav-item:hover, .nav-item.active {
+  color: var(--secondary);
+}
+.nav-item.active {
+  background: rgba(46, 58, 89, 0.6);
+  border-radius: 9999px;
+}
+
+.hourly-item {
+  width: 4rem;
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+}
+.hourly-active {
+  background: rgba(46, 58, 89, 0.7);
+  border: 1px solid rgba(116, 209, 255, 0.4);
+}
+.temperature-bar {
+  flex: 1;
+  height: 6px;
+  background-color: #262a34;
+  border-radius: 3px;
+  position: relative;
+  margin: 0 8px;
+}
+.temperature-bar-fill {
+  position: absolute;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #74d1ff, #cebdff);
+}

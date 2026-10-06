@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather - Abuja</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link href="weather.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-container">
+  <div class="ambient-glow"></div>
+  
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center p-3 sticky-top" style="background: rgba(15,19,28,0.8); backdrop-filter: blur(10px); z-index: 40;">
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center p-2" style="background: rgba(49,53,63,0.4); border:none; width: 36px; height: 36px;">
+        <span class="material-symbols-outlined filled text-secondary-custom fs-5">location_on</span>
+      </button>
+      <div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="font-headline fw-semibold text-on-surface" style="font-size: 22px;">Abuja</span>
+          <span class="bg-secondary rounded-circle" style="width: 6px; height: 6px; background-color: var(--secondary)"></span>
+        </div>
+        <span class="text-micro text-outline">UPDATED JUST NOW</span>
+      </div>
+    </div>
+    <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center p-2" style="background: rgba(49,53,63,0.4); border:none; width: 36px; height: 36px;">
+      <span class="material-symbols-outlined text-outline">search</span>
+    </button>
+  </header>
+
+  <!-- Location Quick Switch -->
+  <nav class="d-flex gap-2 overflow-auto no-scrollbar px-3 py-2">
+    <button class="btn rounded-pill d-flex align-items-center gap-1 flex-shrink-0" style="background: rgba(46,58,89,0.8); border: 1px solid rgba(116,209,255,0.3); color: var(--secondary); font-size: 11px; font-weight: 600;">
+      <span class="material-symbols-outlined filled fs-6">near_me</span> Abuja
+    </button>
+    <button class="btn rounded-pill flex-shrink-0 text-outline" style="background: rgba(49,53,63,0.4); font-size: 11px; font-weight: 600;">Lagos</button>
+    <button class="btn rounded-pill flex-shrink-0 text-outline" style="background: rgba(49,53,63,0.4); font-size: 11px; font-weight: 600;">London</button>
+    <button class="btn rounded-pill flex-shrink-0 text-outline" style="background: rgba(49,53,63,0.4); font-size: 11px; font-weight: 600;">New York</button>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="px-3 pb-4 container-fluid mt-2">
+    <div class="row g-4">
+      
+      <!-- Left Column (Desktop) -->
+      <div class="col-12 col-lg-7 d-flex flex-column gap-3">
+        
+        <!-- Hero section -->
+        <section class="frosted-glass p-4 text-center d-flex flex-column align-items-center position-relative overflow-hidden">
+          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill" style="background: rgba(49,53,63,0.5); border: 1px solid rgba(69,70,78,0.3)">
+            <span class="material-symbols-outlined filled text-secondary-custom fs-6">cloud</span>
+            <span class="text-label-md text-on-surface">OVERCAST CLOUDS</span>
+          </div>
+
+          <div class="d-flex align-items-start justify-content-center mt-3 mb-2">
+            <span class="text-display-hero text-on-surface">27</span>
+            <span class="font-headline text-secondary-custom fs-1 mt-2 ms-1">°C</span>
+          </div>
+
+          <div class="d-flex align-items-center gap-3 text-on-surface-variant small mb-4">
+            <span class="fw-medium text-on-surface">Feels like 27°</span>
+            <span class="bg-outline rounded-circle" style="width: 4px; height: 4px;"></span>
+            <span class="text-outline">H: 27° &nbsp;L: 27°</span>
+          </div>
+
+          <div class="w-100 rounded p-3 d-flex align-items-center gap-3 text-start" style="background: rgba(38,42,52,0.5); border: 1px solid rgba(69,70,78,0.2);">
+            <div class="rounded-circle d-flex align-items-center justify-content-center text-secondary-custom flex-shrink-0" style="background: rgba(116,209,255,0.15); width: 32px; height: 32px;">
+              <span class="material-symbols-outlined">water_drop</span>
+            </div>
+            <p class="mb-0 small text-primary-custom" style="line-height: 1.2;">
+              High humidity at 82% today. Expect 100% cloud cover with gentle breezes around 1.2 m/s. Pressure is 1009 hPa.
+            </p>
+          </div>
+        </section>
+
+        <!-- Hourly Forecast -->
+        <section>
+          <div class="d-flex justify-content-between align-items-center px-1 mb-2">
+            <h2 class="text-label-md text-outline d-flex align-items-center gap-1 mb-0">
+              <span class="material-symbols-outlined" style="font-size: 14px;">schedule</span> HOURLY TELEMETRY
+            </h2>
+            <span class="text-micro text-secondary-custom">LOCAL TIME</span>
+          </div>
+          
+          <div class="d-flex gap-2 overflow-auto no-scrollbar pb-2 mx-n3 px-3">
+            <!-- Now -->
+            <div class="pill-card hourly-item hourly-active position-relative flex-shrink-0">
+              <div class="rounded-circle bg-secondary position-absolute top-0 mt-2" style="width:6px; height:6px;"></div>
+              <span class="text-micro text-secondary-custom mt-2">NOW</span>
+              <span class="material-symbols-outlined filled text-secondary-custom fs-2">cloud</span>
+              <span class="fw-bold">27°</span>
+            </div>
+            <div class="pill-card hourly-item frosted-card flex-shrink-0">
+              <span class="text-micro text-outline mt-1">+1 HR</span>
+              <span class="material-symbols-outlined filled text-secondary-custom fs-2">cloud</span>
+              <span class="fw-bold">27°</span>
+            </div>
+            <div class="pill-card hourly-item frosted-card flex-shrink-0">
+              <span class="text-micro text-outline mt-1">+2 HR</span>
+              <span class="material-symbols-outlined filled text-secondary-custom fs-2">cloud</span>
+              <span class="fw-bold">26°</span>
+            </div>
+            <div class="pill-card hourly-item frosted-card flex-shrink-0">
+              <span class="text-micro text-outline mt-1">+3 HR</span>
+              <span class="material-symbols-outlined text-secondary-custom fs-2">rainy</span>
+              <span class="fw-bold">25°</span>
+            </div>
+            <div class="pill-card hourly-item frosted-card flex-shrink-0">
+              <span class="text-micro text-outline mt-1">+4 HR</span>
+              <div class="d-flex flex-column align-items-center">
+                <span class="material-symbols-outlined text-secondary-custom fs-2">rainy</span>
+                <span class="text-micro text-secondary-custom" style="margin-top:-4px;">40%</span>
+              </div>
+              <span class="fw-bold">24°</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Grid: Humidity, Visibility, Wind -->
+        <section class="row g-3">
+          <!-- Humidity -->
+          <div class="col-6 col-md-4">
+            <div class="frosted-card p-3 h-100 d-flex flex-column justify-content-between">
+              <div class="d-flex justify-content-between align-items-center text-outline mb-2">
+                <div class="text-micro d-flex align-items-center gap-1">
+                  <span class="material-symbols-outlined" style="font-size:14px;">water_drop</span> HUMIDITY
+                </div>
+              </div>
+              <div class="mb-2">
+                <div class="font-headline fs-3 fw-semibold text-on-surface">82<span class="fs-5">%</span></div>
+                <div class="text-label-md text-secondary-custom mt-1">High</div>
+              </div>
+              <p class="small text-outline mb-0" style="font-size: 11px;">Muggy conditions.</p>
+            </div>
+          </div>
+          <!-- Wind -->
+          <div class="col-6 col-md-4">
+            <div class="frosted-card p-3 h-100 d-flex flex-column justify-content-between">
+              <div class="d-flex justify-content-between align-items-center text-outline mb-2">
+                <div class="text-micro d-flex align-items-center gap-1">
+                  <span class="material-symbols-outlined" style="font-size:14px;">navigation</span> WIND
+                </div>
+              </div>
+              <div class="mb-2">
+                <div class="d-flex align-items-baseline gap-1">
+                  <span class="font-headline fs-3 fw-semibold text-on-surface">1.2</span>
+                  <span class="small text-outline">m/s</span>
+                </div>
+                <div class="text-label-md text-primary-custom mt-1">SW · Gusts: 1.6 m/s</div>
+              </div>
+              <div class="d-flex align-items-center gap-2 mt-1">
+                <div class="rounded-circle d-flex justify-content-center align-items-center text-secondary-custom" style="width:20px; height:20px; border: 1px solid rgba(116,209,255,0.4); transform: rotate(233deg);">
+                  <span class="material-symbols-outlined" style="font-size:12px;">arrow_upward</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Visibility -->
+          <div class="col-12 col-md-4">
+            <div class="frosted-card p-3 h-100 d-flex flex-column justify-content-between">
+              <div class="d-flex justify-content-between align-items-center text-outline mb-2">
+                <div class="text-micro d-flex align-items-center gap-1">
+                  <span class="material-symbols-outlined" style="font-size:14px;">visibility</span> VISIBILITY
+                </div>
+              </div>
+              <div class="mb-2">
+                <div class="font-headline fs-3 fw-semibold text-on-surface">10<span class="fs-5">km</span></div>
+                <div class="text-label-md text-secondary-custom mt-1">Clear view</div>
+              </div>
+              <p class="small text-outline mb-0" style="font-size: 11px;">Good visibility.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column (Desktop) -->
+      <div class="col-12 col-lg-5 d-flex flex-column gap-3">
+        <!-- 10-Day Forecast -->
+        <section class="frosted-glass p-3 h-100">
+          <div class="d-flex align-items-center justify-content-between border-bottom border-secondary pb-2 mb-2" style="border-color: rgba(255,255,255,0.1) !important;">
+            <div class="text-label-md text-outline d-flex align-items-center gap-1">
+              <span class="material-symbols-outlined" style="font-size: 14px;">calendar_month</span> WEEKLY HORIZON
+            </div>
+          </div>
+          
+          <!-- Day row -->
+          <div class="d-flex align-items-center justify-content-between small py-2">
+            <span class="text-on-surface fw-medium" style="width: 40px;">Today</span>
+            <span class="material-symbols-outlined filled text-secondary-custom" style="width: 24px; text-align: center;">cloud</span>
+            <span class="text-outline text-end" style="width: 24px;">26°</span>
+            <div class="temperature-bar">
+              <div class="temperature-bar-fill" style="left: 15%; width: 65%;"></div>
+            </div>
+            <span class="text-on-surface fw-bold text-start" style="width: 24px;">27°</span>
+          </div>
+          <!-- Tomorrow -->
+          <div class="d-flex align-items-center justify-content-between small py-2">
+            <span class="text-on-surface-variant" style="width: 40px;">Tue</span>
+            <span class="material-symbols-outlined filled text-secondary-custom" style="width: 24px; text-align: center;">partly_cloudy_day</span>
+            <span class="text-outline text-end" style="width: 24px;">24°</span>
+            <div class="temperature-bar">
+              <div class="temperature-bar-fill" style="left: 12%; width: 72%;"></div>
+            </div>
+            <span class="text-on-surface fw-bold text-start" style="width: 24px;">28°</span>
+          </div>
+          <!-- Wed -->
+          <div class="d-flex align-items-center justify-content-between small py-2">
+            <span class="text-on-surface-variant" style="width: 40px;">Wed</span>
+            <span class="material-symbols-outlined text-secondary-custom" style="width: 24px; text-align: center;">rainy</span>
+            <span class="text-outline text-end" style="width: 24px;">23°</span>
+            <div class="temperature-bar">
+              <div class="temperature-bar-fill" style="left: 8%; width: 55%;"></div>
+            </div>
+            <span class="text-on-surface fw-bold text-start" style="width: 24px;">26°</span>
+          </div>
+          <!-- Thu -->
+          <div class="d-flex align-items-center justify-content-between small py-2">
+            <span class="text-on-surface-variant" style="width: 40px;">Thu</span>
+            <span class="material-symbols-outlined text-secondary-custom" style="width: 24px; text-align: center;">thunderstorm</span>
+            <span class="text-outline text-end" style="width: 24px;">22°</span>
+            <div class="temperature-bar">
+              <div class="temperature-bar-fill" style="left: 4%; width: 48%;"></div>
+            </div>
+            <span class="text-on-surface fw-bold text-start" style="width: 24px;">25°</span>
+          </div>
+          <!-- Fri -->
+          <div class="d-flex align-items-center justify-content-between small py-2">
+            <span class="text-on-surface-variant" style="width: 40px;">Fri</span>
+            <span class="material-symbols-outlined text-secondary-custom" style="width: 24px; text-align: center;">rainy</span>
+            <span class="text-outline text-end" style="width: 24px;">23°</span>
+            <div class="temperature-bar">
+              <div class="temperature-bar-fill" style="left: 10%; width: 50%;"></div>
+            </div>
+            <span class="text-on-surface fw-bold text-start" style="width: 24px;">25°</span>
+          </div>
+          <!-- Sat -->
+          <div class="d-flex align-items-center justify-content-between small py-2">
+            <span class="text-on-surface-variant" style="width: 40px;">Sat</span>
+            <span class="material-symbols-outlined text-tertiary-custom" style="width: 24px; text-align: center;">sunny</span>
+            <span class="text-outline text-end" style="width: 24px;">24°</span>
+            <div class="temperature-bar">
+              <div class="temperature-bar-fill" style="left: 20%; width: 60%;"></div>
+            </div>
+            <span class="text-on-surface fw-bold text-start" style="width: 24px;">29°</span>
+          </div>
+        </section>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav d-flex justify-content-around align-items-center pt-2 pb-3 px-3">
+    <a href="#" class="nav-item active text-center">
+      <span class="material-symbols-outlined filled fs-4">partly_cloudy_day</span>
+      <span class="text-micro d-block mt-1">Forecast</span>
+    </a>
+    <a href="#" class="nav-item text-center">
+      <span class="material-symbols-outlined fs-4">radar</span>
+      <span class="text-micro d-block mt-1">Radar</span>
+    </a>
+    <a href="#" class="nav-item text-center">
+      <span class="material-symbols-outlined fs-4">bookmarks</span>
+      <span class="text-micro d-block mt-1">Locations</span>
+    </a>
+    <a href="#" class="nav-item text-center">
+      <span class="material-symbols-outlined fs-4">settings</span>
+      <span class="text-micro d-block mt-1">Settings</span>
+    </a>
+  </nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
